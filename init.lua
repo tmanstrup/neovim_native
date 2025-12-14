@@ -10,7 +10,7 @@ require("core.statusline")
 
 -- custom plugins
 require("plugin.gitchange").setup()
-require("plugin.file-search").setup()
+--require("plugin.file-search2").setup()
 --require("plugin.textwatcher").setup({attach = true})
 
 --local logfile = "/tmp/nvim_notify.log"
@@ -33,7 +33,7 @@ require("plugin.file-search").setup()
 --  end,
 --})
 
-require('plugin.banner2').setup()
+--require('plugin.banner2').setup()
 --require('plugin.banner2').setup({
 --  height = 1,                        -- Banner height
 --  separator = ' | ',                 -- Separator between buffers
@@ -44,3 +44,11 @@ require('plugin.banner2').setup()
 --
 --vim.keymap.set('n', '<leader>bt', '<cmd>lua require("banner2").toggle()<cr>', 
 --  { desc = 'Toggle buffer banner' })
+--
+-- Add to your init.lua or init.vim (wrapped in lua << EOF ... EOF)
+
+-- Load the fuzzy finder module
+local fuzzy_finder = require('plugin.fuzzy_finder')
+
+-- Set up the keybinding (assuming <leader> is space or your preferred leader key)
+vim.keymap.set('n', '<leader>fs', fuzzy_finder.show, { desc = 'Fuzzy find files' })
